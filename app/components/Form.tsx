@@ -30,15 +30,16 @@ const Form = () => {
       confirmPassword: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-        alert(JSON.stringify(values, null, 2));
+    onSubmit: (values, { resetForm }) => {
+        const { password, confirmPassword, ...otherValues } = values;
+        alert(JSON.stringify(otherValues, null, 2));
         resetForm();
-    },
+      },
   });
 
   return (
     <>
-    <h1 className='font-bold pt-2 '>Assignment of Form Validation</h1>
+    <h1 className='font-bold pt-2 text-center'>Assignment of Form Validation</h1>
     <form onSubmit={formik.handleSubmit} className="max-w-lg mx-auto mt-4">
         <div className="mb-4">
         <label htmlFor="name" className="block text-sm font-medium text-gray-700">
